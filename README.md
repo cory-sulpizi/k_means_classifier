@@ -10,18 +10,18 @@ Required Inputs: <br>
 * k -> shape(v, ). The number of k-cluster centres desired for each class.
 
 Optional Inputs:<br>
-    -vb -> Verbose. Whether or not the function should print its results<br>
-    -loss_coef ->  shape(v, ). How much the loss of each class should be scaled by. For example, loss_coef = [1,2] means that the loss of class 0 is half as important as the loss of class 1.<br>
-    -learn_rate -> Learning rate for stochastic gradient descent.<br>
-    -max_iters -> The number of iterations for training.<br>
-    -sgd_size -> The batch size for stochastic gradient descent.<br>
+* vb -> Verbose. Whether or not the function should print its results<br>
+* loss_coef ->  shape(v, ). How much the loss of each class should be scaled by. For example, loss_coef = [1,2] means that the loss of class 0 is half as important as the loss of class 1.<br>
+* learn_rate -> Learning rate for stochastic gradient descent.<br>
+* max_iters -> The number of iterations for training.<br>
+* sgd_size -> The batch size for stochastic gradient descent.<br>
 
 Outputs:<br>
-    -w_out -> shape(sum(k), v). The predicted weight values.<br>
-    -b_out -> The bias of the model's softmax function.<br>
-    -g -> shape(sum(k), m). The found k-cluster centres.<br>
-    -acc -> The overall training accuracy of the model.<br>
-    -acc_by_label -> shape(v). The training accuracy for each class.<br>
+* w_out -> shape(sum(k), v). The predicted weight values.<br>
+* b_out -> The bias of the model's softmax function.<br>
+* g -> shape(sum(k), m). The found k-cluster centres.<br>
+* acc -> The overall training accuracy of the model.<br>
+* acc_by_label -> shape(v). The training accuracy for each class.<br>
       
 ### Finding k-values
 There are three methods for finding the k-values for the model. <br>
@@ -42,17 +42,17 @@ See the examples section below for more information.
 Uses the k-means classifier to predict the classes of each given data point. 
 
 Required Inputs: <br>
-    -x -> shape(n, m). n data points with m-dimensional coordinates.<br>
-    -w -> The weight values calculated by the train() function.<br>
-    -b -> The bias of the softmax calculated by the train() function.<br>
-    -g -> The k-cluster centres calculated by the train() function.<br>
+* x -> shape(n, m). n data points with m-dimensional coordinates.<br>
+* w -> The weight values calculated by the train() function.<br>
+* b -> The bias of the softmax calculated by the train() function.<br>
+* g -> The k-cluster centres calculated by the train() function.<br>
         
 Optional Inputs:<br>
-    -y -> shape(n, ). n data points with class between 0 and v-1, where v is the number of possible classes. If this is provided the function will print the accuracy of the model.<br>
+* y -> shape(n, ). n data points with class between 0 and v-1, where v is the number of possible classes. If this is provided the function will print the accuracy of the model.<br>
 
 Outputs:<br>
-    -l_out -> shape(n, ). The predicted labels for each data point.<br>
-    -y_out -> shape(n, v). The certainty that each data point belongs to each class.<br>
+* l_out -> shape(n, ). The predicted labels for each data point.<br>
+* y_out -> shape(n, v). The certainty that each data point belongs to each class.<br>
    
 ## Examples
 ### Example 1: 2 dimensional space, 2 classes
