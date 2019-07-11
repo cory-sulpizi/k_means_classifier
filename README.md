@@ -72,7 +72,7 @@ Since there are more data points with label == 0, the training function skewed t
 If we are interested in finding a classifier that improves the accuracy of label 1, we could add a loss coefficient to weight each class equally by setting the optional parameter loss_coef to [1/n_0, 1/n_1], where n_0 and n_1 are the number of points with labels 0 and 1 respectively. 
 
 Below is an example using loss coefficients weighted by population:<br>
-w, b, g, _, _ = train(x, y, k=[30,10], loss_coef=[1/np.sum(y==0),1/np.sum(y==1)])<br>
+'''w, b, g, _, _ = train(x, y, k=[30,10], loss_coef=[1/np.sum(y==0),1/np.sum(y==1)])'''<br>
 
 Total testing accuracy: 96.1%<br>
 Testing accuracy for label 0: 95.92%<br>
@@ -88,7 +88,7 @@ This example uses randomly generated data in a 3-dimensional space. A series of 
 The number of points in each class are as follows: [6876, 562, 94, 568, 1161]<br>
 
 Below is an example using the data and k = [50, 20, 10, 20, 30]:<br>
-w, b, g, _, _ = train(x, y, k=[50, 20, 10, 20, 30])<br>
+'''w, b, g, _, _ = train(x, y, k=[50, 20, 10, 20, 30])'''<br>
 
 Total testing accuracy: 91.69%<br>
 Testing accuracy by label: [97.96, 61.03, 56., 67.88, 91.74]%<br>
