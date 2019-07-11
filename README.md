@@ -5,7 +5,7 @@ A classifier that uses k-means clustering to define the decision boundary for ea
 Calculates the weights (w), softmax bias (b), and k-cluster centres (g) required for predicting classes.
 
 Required Inputs: <br>
-* x -> shape(n, m). n data points with m-dimensional coordinates.
+* x -> shape(n, m). n data points with m-dimensional coordinates. It is recommended that you scale the x values such that they are between 0 and 1. 
 * y -> shape(n, ). n data points with class between 0 and v-1, where v is the number of possible classes.
 * k -> shape(v, ). The number of k-cluster centres desired for each class.
 
