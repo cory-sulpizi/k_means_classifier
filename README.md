@@ -59,7 +59,7 @@ See the examples section below for more information.
 This example uses data points gathered from a motion tracking camera. Each data point has a 2-dimensional position and an associated class that was identified manually by a user. A label of 1 means that the data point corresponds to a bicycle that passed by the camera, whereas a label of 0 means that the data point was not a bike (instead it might have been a car, a pedestrian, noise, etc.). The number of points with label == 0 is roughly 10,000, whereas the number of points with label == 1 is roughly 500.
 
 Below is an example using the data and k = [30, 10]:<br>
-w, b, g, _, _ = train(x, y, k=[30,10])<br>
+```w, b, g, _, _ = train(x, y, k=[30,10])```<br>
 
 Total testing accuracy: 97.56% <br>
 Testing accuracy for label 0: 98.67% <br>
@@ -72,7 +72,7 @@ Since there are more data points with label == 0, the training function skewed t
 If we are interested in finding a classifier that improves the accuracy of label 1, we could add a loss coefficient to weight each class equally by setting the optional parameter loss_coef to [1/n_0, 1/n_1], where n_0 and n_1 are the number of points with labels 0 and 1 respectively. 
 
 Below is an example using loss coefficients weighted by population:<br>
-'''w, b, g, _, _ = train(x, y, k=[30,10], loss_coef=[1/np.sum(y==0),1/np.sum(y==1)])'''<br>
+```w, b, g, _, _ = train(x, y, k=[30,10], loss_coef=[1/np.sum(y==0),1/np.sum(y==1)])```<br>
 
 Total testing accuracy: 96.1%<br>
 Testing accuracy for label 0: 95.92%<br>
@@ -88,7 +88,7 @@ This example uses randomly generated data in a 3-dimensional space. A series of 
 The number of points in each class are as follows: [6876, 562, 94, 568, 1161]<br>
 
 Below is an example using the data and k = [50, 20, 10, 20, 30]:<br>
-'''w, b, g, _, _ = train(x, y, k=[50, 20, 10, 20, 30])'''<br>
+```w, b, g, _, _ = train(x, y, k=[50, 20, 10, 20, 30])```<br>
 
 Total testing accuracy: 91.69%<br>
 Testing accuracy by label: [97.96, 61.03, 56., 67.88, 91.74]%<br>
@@ -100,7 +100,7 @@ It is obvious that the large classes (specifically classes 0 and 4) have signifi
 If we are interested in improving the accuracy of each class, we can again weight each class by 1/n_i, where n_i is the number of data points in that class. 
 
 Below is an example using loss coefficients weighted by population:<br>
-w, b, g, _, _ = train(x, y, k=[50,20,10,20,30], loss_coef=[1/np.sum(y==0),1/np.sum(y==1),1/np.sum(y==2),1/np.sum(y==3),1/np.sum(y==4)])<br>
+```w, b, g, _, _ = train(x, y, k=[50,20,10,20,30], loss_coef=[1/np.sum(y==0),1/np.sum(y==1),1/np.sum(y==2),1/np.sum(y==3),1/np.sum(y==4)])```<br>
 
 Total testing accuracy: 84.51%<br>
 Testing accuracy by label: [84.29, 90.08, 100., 79.82, 83.89]%<br>
