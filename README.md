@@ -22,21 +22,6 @@ Outputs:<br>
 * g -> shape(sum(k), m). The found k-cluster centres.<br>
 * acc -> The overall training accuracy of the model.<br>
 * acc_by_label -> shape(v). The training accuracy for each class.<br>
-      
-### Finding k-values
-There are three methods for finding the k-values for the model. <br>
-1) **Visual inspection**. Use a scatter plot to plot your data points, and decide approximately how many clusters you think would be appropriate. This is less accurate than method 2, and only really works for 2D points (since visualizing in 3D or higher is much harder).<br>
-2) **Guess the values**. This is much less accurate than the other two methods, but can work fine for quick analysis.<br>
-3) **Try a variety of combinations for k**. Input the first combination, train the network, record the accuracy, then repeat with the second combination. Choose the k-values that return the highest testing accuracy. 
-
-### Loss Coefficients
-The default loss coefficient is 1. What this means is that every data point is weighted equally when calculating the loss function. This means that by default the model is attempting to find the highest overall accuracy. One issue with selecting the default coefficient is that it generally leads to high accuracies in classes with lots of data points, but much lower accuracies for classes with fewer data points. 
-
-The loss_coef input allows you to weight the loss of each class differently. Say for example you have 2 classes, and the default loss coefficient gives you accuracies of 95% for label 0 and 70% for label 1, since label 0 has a lot more data points than label 1. You could use loss_coef = [1/n_0, 1/n_1], where n_0 and n_1 are the number of data points in each class respectively. This means more equal weight will be put on both classes, and could make your accuracies closer to 85% for both classes. 
-
-Note that any value for loss_coef other than 1 will likely decrease your overall accuracy. 
-
-See the examples section below for more information.
 
 ### predict() Function
 Uses the k-means classifier to predict the classes of each given data point. 
@@ -53,6 +38,21 @@ Optional Inputs:<br>
 Outputs:<br>
 * l_out -> shape(n, ). The predicted labels for each data point.<br>
 * y_out -> shape(n, v). The certainty that each data point belongs to each class.<br>
+
+### Finding k-values
+There are three methods for finding the k-values for the model. <br>
+1) **Visual inspection**. Use a scatter plot to plot your data points, and decide approximately how many clusters you think would be appropriate. This is less accurate than method 2, and only really works for 2D points (since visualizing in 3D or higher is much harder).<br>
+2) **Guess the values**. This is much less accurate than the other two methods, but can work fine for quick analysis.<br>
+3) **Try a variety of combinations for k**. Input the first combination, train the network, record the accuracy, then repeat with the second combination. Choose the k-values that return the highest testing accuracy. 
+
+### Loss Coefficients
+The default loss coefficient is 1. What this means is that every data point is weighted equally when calculating the loss function. This means that by default the model is attempting to find the highest overall accuracy. One issue with selecting the default coefficient is that it generally leads to high accuracies in classes with lots of data points, but much lower accuracies for classes with fewer data points. 
+
+The loss_coef input allows you to weight the loss of each class differently. Say for example you have 2 classes, and the default loss coefficient gives you accuracies of 95% for label 0 and 70% for label 1, since label 0 has a lot more data points than label 1. You could use loss_coef = [1/n_0, 1/n_1], where n_0 and n_1 are the number of data points in each class respectively. This means more equal weight will be put on both classes, and could make your accuracies closer to 85% for both classes. 
+
+Note that any value for loss_coef other than 1 will likely decrease your overall accuracy. 
+
+See the examples section below for more information.
    
 ## Examples
 ### Example 1: 2 dimensional space, 2 classes
