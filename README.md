@@ -39,6 +39,11 @@ Outputs:<br>
 * l_out -> shape(n, ). The predicted labels for each data point.<br>
 * y_out -> shape(n, v). The certainty that each data point belongs to each class.<br>
 
+### Required Libraries
+* numpy
+* tensorflow
+* sklearn
+
 ### Finding k-values
 There are three methods for finding the k-values for the model. <br>
 1) **Visual inspection**. Use a scatter plot to plot your data points, and decide approximately how many clusters you think would be appropriate. This is less accurate than method 2, and only really works for 2D points (since visualizing in 3D or higher is much harder).<br>
