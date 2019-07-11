@@ -56,9 +56,11 @@ See the examples section below for more information.
    
 ## Examples
 The datasets used for both examples can be found [here](example_datasets.txt). Load the datasets using the following code:<br>
-```import pickle```<br>
-```with open("<file location>\example_datasets.txt","rb") as fp:```<br>
-        ```[x_1, y_1, x_2, y_2] = pickle.load(fp)```<br>
+```
+import pickle
+with open("<file location>\example_datasets.txt","rb") as fp:
+        [x_1, y_1, x_2, y_2] = pickle.load(fp)
+```
         
 Make sure you change the <file location> to where you saved the text file. <br>
 Where x_1 and y_1 are the coordinates and labels of example 1, and x_2 and y_2 are for example 2. 
