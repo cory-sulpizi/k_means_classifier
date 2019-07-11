@@ -25,9 +25,9 @@ Outputs:<br>
       
 ### Finding k-values
 There are three methods for finding the k-values for the model. <br>
-1) Visual inspection. Use a scatter plot to plot your data points, and decide approximately how many clusters you think would be appropriate. This is less accurate than method 2, and only really works for 2D points (since visualizing in 3D or higher is much harder).<br>
-2) Guess the values. This is much less accurate than the other two methods, but can work fine for quick analysis.<br>
-3) Try a variety of combinations for k. Input the first combination, train the network, record the accuracy, then repeat with the second combination. Choose the k-values that return the highest testing accuracy. 
+1) **Visual inspection**. Use a scatter plot to plot your data points, and decide approximately how many clusters you think would be appropriate. This is less accurate than method 2, and only really works for 2D points (since visualizing in 3D or higher is much harder).<br>
+2) **Guess the values**. This is much less accurate than the other two methods, but can work fine for quick analysis.<br>
+3) **Try a variety of combinations for k**. Input the first combination, train the network, record the accuracy, then repeat with the second combination. Choose the k-values that return the highest testing accuracy. 
 
 ### Loss Coefficients
 The default loss coefficient is 1. What this means is that every data point is weighted equally when calculating the loss function. This means that by default the model is attempting to find the highest overall accuracy. One issue with selecting the default coefficient is that it generally leads to high accuracies in classes with lots of data points, but much lower accuracies for classes with fewer data points. 
