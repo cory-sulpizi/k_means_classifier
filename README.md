@@ -80,7 +80,7 @@ Testing accuracy for label 1: 100.0%<br>
 
 <img src="images/example_1.png?raw=true"/>
 
-As you can see the overall accuracy was slightly impacted, but the accuracy of label 1 was significantly improved. 
+As you can see the overall accuracy was slightly impacted, but the accuracy of label 1 was significantly improved. The decision region for class 0 became much smaller, and the decision region for class 1 became much larger.
 
 ### Example 2: 3 dimensional space, 5 classes
 This example uses randomly generated data in a 3-dimensional space. A series of ellipsoids was generated, then a series of data points in a grid (each position between 0 and 1) was classified by whether or not they were in each ellipsoid, then the position of each point was randomly translated by ~N(0,0.03) in each dimension. k = [50, 20, 10, 20, 30] was selected based on visual inspection. 
@@ -108,4 +108,4 @@ Testing accuracy by label: [84.29, 90.08, 100., 79.82, 83.89]%<br>
 Below is a comparison between the default loss_coef and the adjusted loss coefficients as described above:
 <img src="images/example_3.gif?raw=true"/>
 
-As you can see, the overall accuracy went down, but the accuracies by label became much more equal. As you can see in the above animation the decision regions defined for the smaller classes became much large. See the decision region of class 2 for example: before adjusting the loss_coef there was only 1 decision region for class 2 and it was fairly small, whereas afterwards there are multiple regions for class 2 and they are much larger. Similarly, the decision region for class 0 became much smaller. 
+As you can see, the overall accuracy went down, but the accuracies by label became much more equal. As you can see in the above animation the decision regions defined for the smaller classes became much larger. The decision region of class 2 exemplifies this: before adjusting the loss_coef there was only 1 decision region for class 2 and it was fairly small, whereas afterwards there are multiple regions for class 2 and they are much larger. Similarly, the decision region for class 0 became much smaller. 
