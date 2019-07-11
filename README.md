@@ -27,7 +27,7 @@ Outputs:<br>
 Uses the k-means classifier to predict the classes of each given data point. 
 
 Required Inputs: <br>
-* x -> shape(n, m). n data points with m-dimensional coordinates.<br>
+* x -> shape(n, m). n data points with m-dimensional coordinates. If you scaled the x values in the train() function, make sure you scale these values by the same values.<br>
 * w -> The weight values calculated by the train() function.<br>
 * b -> The bias of the softmax calculated by the train() function.<br>
 * g -> The k-cluster centres calculated by the train() function.<br>
