@@ -55,7 +55,13 @@ Note that any value for loss_coef other than 1 will likely decrease your overall
 See the examples section below for more information.
    
 ## Examples
-The datasets used for both examples can be found [here](example_datasets.txt).
+The datasets used for both examples can be found [here](example_datasets.txt). Load the datasets using the following code:
+```import pickle```
+```with open("<file location>\example_datasets.txt","rb") as fp:```
+        ```[x_1, y_1, x_2, y_2] = pickle.load(fp)```
+        
+Make sure you change the <file location> to where you saved the text file. 
+Where x_1 and y_1 are the coordinates and labels of example 1, and x_2 and y_2 are for example 2. 
 
 ### Example 1: 2 dimensional space, 2 classes
 This example uses data points gathered from a motion tracking camera. Each data point has a 2-dimensional position and an associated class that was identified manually by a user. A label of 1 means that the data point corresponds to a bicycle that passed by the camera, whereas a label of 0 means that the data point was not a bike (instead it might have been a car, a pedestrian, noise, etc.). The number of points with label == 0 is roughly 10,000, whereas the number of points with label == 1 is roughly 500.
