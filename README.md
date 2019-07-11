@@ -1,7 +1,7 @@
-# K-Means Classifier
+## K-Means Classifier
 A classifier that uses k-means clustering to define the decision boundary for each class.
 
-# train() Function
+### train() Function
 Calculates the weights (w), softmax bias (b), and k-cluster centres (g) required for predicting classes.
 
 Required Inputs: 
@@ -26,13 +26,13 @@ Outputs:
     acc -> The overall training accuracy of the model.
     acc_by_label -> shape(v). The training accuracy for each class.
       
-# Finding k-values
+### Finding k-values
 There are three methods for finding the k-values for the model. 
 1) Visual inspection. Use a scatter plot to plot your data points, and decide approximately how many clusters you think would be appropriate. This is less accurate than method 2, and only really works for 2D points (since visualizing in 3D or higher is much harder).
 2) Guess the values. This is much less accurate than the other two methods, but can work fine for quick analysis.
 3) Try a variety of combinations for k. Input the first combination, train the network, record the accuracy, then repeat with the second combination. Choose the k-values that return the highest testing accuracy. 
 
-# Loss Coefficients
+### Loss Coefficients
 The default loss coefficient is 1. What this means is that every data point is weighted equally when calculating the loss function. This means that by default the model is attempting to find the highest overall accuracy. One issue with selecting the default coefficient is that it generally leads to high accuracies in classes with lots of data points, but much lower accuracies for classes with fewer data points. 
 
 The loss_coef input allows you to weight the loss of each class differently. Say for example you have 2 classes, and the default loss coefficient gives you accuracies of 95% for label 0 and 70% for label 1, since label 0 has a lot more data points than label 1. You could use loss_coef = [1/n_0, 1/n_1], where n_0 and n_1 are the number of data points in each class respectively. This means more equal weight will be put on both classes, and could make your accuracies closer to 85% for both classes. 
@@ -41,7 +41,7 @@ Note that any value for loss_coef other than 1 will likely decrease your overall
 
 See the examples section below for more information.
 
-# predict() Function
+### predict() Function
 Uses the k-means classifier to predict the classes of each given data point. 
 
 Required Inputs: 
@@ -58,8 +58,9 @@ Optional Inputs:
 Outputs:
     l_out -> shape(n, ). The predicted labels for each data point.
     y_out -> shape(n, v). The certainty that each data point belongs to each class.
-    
-# Example 1: 2 dimensional space, 2 classes
+   
+## Examples
+### Example 1: 2 dimensional space, 2 classes
 This example uses data points gathered from a motion tracking camera. Each data point has a 2-dimensional position and an associated class that was identified manually by a user. A label of 1 means that the data point corresponds to a bicycle that passed by the camera, whereas a label of 0 means that the data point was not a bike (instead it might have been a car, a pedestrian, noise, etc.). The number of points with label == 0 is roughly 10,000, whereas the number of points with label == 1 is roughly 500.
 
 Below is an example using the data and k = [30, 10]:
@@ -86,7 +87,7 @@ Testing accuracy for label 1: 100.0%
 
 As you can see the overall accuracy was slightly impacted, but the accuracy of label 1 was significantly improved. 
 
-# Example 2: 3 dimensional space, 5 classes
+### Example 2: 3 dimensional space, 5 classes
 This example uses randomly generated data in a 3-dimensional space. A series of ellipsoids was generated, then a series of data points in a grid (each position between 0 and 1) was classified by whether or not they were in each ellipsoid, then the position of each point was randomly translated by ~N(0,0.03) in each dimension. k = [50, 20, 10, 20, 30] was selected based on visual inspection. 
 
 The number of points in each class are as follows: [6876, 562, 94, 568, 1161]
