@@ -29,20 +29,22 @@ import random
 def train(x, y, k, vb = False, loss_coef = [1], learn_rate = 1e-2, max_iters = 2500, sgd_size = 500):
     
     """
-    Train the k-means classifier by finding the w and g values.
+    Calculates the weights (w), softmax bias (b), and k-cluster centres (g) required for predicting classes.
     
-    Inputs: 
+    Required Inputs: 
         x -> shape(n, m). n data points with m-dimensional coordinates.
         y -> shape(n, ). n data points with class between 0 and v-1, where v is the 
                 number of possible classes.
         k -> shape(v, ). The number of k-cluster centres desired for each class.
-        vb (opt.) -> Verbose. Whether or not the function should print its results
-        loss_coef (opt.) ->  shape(v, ). How much the loss of each class should 
+        
+    Optional Inputs:
+        vb -> Verbose. Whether or not the function should print its results
+        loss_coef ->  shape(v, ). How much the loss of each class should 
                 be scaled by. For example, loss_coef = [1,2] means that the loss 
                 of class 0 is half as important as the loss of class 1.
-        learn_rate (opt.) -> Learning rate for stochastic gradient descent.
-        max_iters (opt.) -> The number of iterations for training.
-        sgd_size (opt.) -> The batch size for stochastic gradient descent.
+        learn_rate -> Learning rate for stochastic gradient descent.
+        max_iters -> The number of iterations for training.
+        sgd_size -> The batch size for stochastic gradient descent.
         
     Outputs:
         w_out -> shape(sum(k), v). The predicted weight values.
@@ -159,14 +161,16 @@ def train(x, y, k, vb = False, loss_coef = [1], learn_rate = 1e-2, max_iters = 2
 def predict(x, w, b, g, y = []):
     
     """
-    Use the k-means classifier to predict the classes of each given data point. 
+    Uses the k-means classifier to predict the classes of each given data point. 
     
-    Inputs: 
+    Required Inputs: 
         x -> shape(n, m). n data points with m-dimensional coordinates.
         w -> The weight values calculated by the train() function.
         b -> The bias of the softmax calculated by the train() function.
         g -> The k-cluster centres calculated by the train() function.
-        y (opt.) -> shape(n, ). n data points with class between 0 and v-1, where v is the 
+        
+    Optional Inputs:
+        y -> shape(n, ). n data points with class between 0 and v-1, where v is the 
                 number of possible classes. If this is provided the function will print
                 the accuracy of the model.
         
