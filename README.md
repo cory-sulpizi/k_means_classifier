@@ -69,6 +69,22 @@ with open("<file location>\example_datasets.txt","rb") as fp:
         
 Make sure you change the <file location> to where you saved the text file. <br>
 Where x_1 and y_1 are the coordinates and labels of example 1, and x_2 and y_2 are for example 2. 
+        
+The code below demonstrates how you can visualize the decision boundary of each class in a 2-dimensional space where 0 <= x, y <= 1.
+```
+import numpy as np
+import matplotlib.pyplot as plt
+
+w, b, g, _, _ = train(x, y, k=[10,10]) ## Train the network on your data
+x_mesh = np.array(np.meshgrid(range(51),range(51))).T.reshape(-1,2) / 50.0  ## Create a set of coordinates in a 51 x 51 grid
+pred, _ = predict(x_mesh, w, b, g) ## Find the values for all of the mesh coordinates
+
+plt.figure(figsize=(5,5), dpi=80) ## Plot the results
+plt.scatter(x_mesh[:,0],x_mesh[:,1], c=pred, s=25, marker='s', cmap='bwr')
+plt.xlim(0.0,1.0)
+plt.ylim(0.0,1.0)
+plt.show()
+```
 
 ### Example 1: 2 dimensional space, 2 classes
 This example uses data points gathered from a motion tracking camera. Each data point has a 2-dimensional position and an associated class that was identified manually by a user. A label of 1 means that the data point corresponds to a bicycle that passed by the camera, whereas a label of 0 means that the data point was not a bike (instead it might have been a car, a pedestrian, noise, etc.). The number of points with label == 0 is roughly 10,000, whereas the number of points with label == 1 is roughly 500.
