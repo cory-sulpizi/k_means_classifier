@@ -81,8 +81,7 @@ pred, _ = predict(x_mesh, w, b, g) ## Find the values for all of the mesh coordi
 
 plt.figure(figsize=(5,5), dpi=80) ## Plot the results
 plt.scatter(x_mesh[:,0],x_mesh[:,1], c=pred, s=25, marker='s', cmap='bwr')
-plt.xlim(0.0,1.0)
-plt.ylim(0.0,1.0)
+plt.xlim(0.0,1.0), plt.ylim(0.0,1.0)
 plt.show()
 ```
 
