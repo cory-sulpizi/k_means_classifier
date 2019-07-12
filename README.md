@@ -76,7 +76,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 w, b, g, _, _ = train(x, y, k=[10,10]) ## Train the network on your data
-x_mesh = np.array(np.meshgrid(range(51),range(51))).T.reshape(-1,2) / 50.0  ## Create a set of coordinates in a 51 x 51 grid
+x_mesh = np.array(np.meshgrid(range(51),range(51))).T.reshape(-1,2) / 50.0  ## Create a (2601, 2) array that defines a set of coordinates in a 51 x 51 grid
 pred, _ = predict(x_mesh, w, b, g) ## Find the values for all of the mesh coordinates
 
 plt.figure(figsize=(5,5), dpi=80) ## Plot the results
