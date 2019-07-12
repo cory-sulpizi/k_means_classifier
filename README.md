@@ -92,7 +92,7 @@ This example uses data points gathered from a motion tracking camera. Each data 
 Below is an example using the data and k = [30, 10]:<br>
 ```python
 w, b, g, _, _ = train(x, y, k=[30,10])
-``'
+```
 <br>
 
 Total testing accuracy: 97.56% <br>
