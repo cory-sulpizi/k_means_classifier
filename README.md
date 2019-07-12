@@ -67,7 +67,7 @@ with open("<file location>\example_datasets.txt","rb") as fp:
         [x_1, y_1, x_2, y_2] = pickle.load(fp)
 ```
         
-Make sure you change the <file location> to where you saved the text file. <br>
+Make sure you change the ```<file location>``` to where you saved the text file. <br>
 Where x_1 and y_1 are the coordinates and labels of example 1, and x_2 and y_2 are for example 2. 
         
 The code below demonstrates how you can visualize the decision boundary of each class in a 2-dimensional space where 0 <= x, y <= 1.
